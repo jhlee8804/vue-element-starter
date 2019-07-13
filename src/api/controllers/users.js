@@ -13,7 +13,8 @@ export default {
           success: true,
           data: {
             userId,
-            userName: userId
+            userName: userId,
+            isEnabled: true
           }
         })
       }, 500)

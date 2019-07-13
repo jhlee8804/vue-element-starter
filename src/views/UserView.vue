@@ -2,7 +2,8 @@
   <div class="user-view">
     <img src="static/img/logo.png" />
     <h1>View 1</h1>
-    <div>Current User: {{ $get(currentUser, 'userName') }}</div>
+    <div>User: {{ $get(currentUser, 'userName') }}</div>
+    <div>User.isEnabled: {{ $get(currentUser, 'isEnabled', undefined) | yesno }}</div>
   </div>
 </template>
 
