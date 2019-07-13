@@ -16,7 +16,7 @@ module.exports = merge(baseConfig, {
     open: true,
     overlay: { warnings: false, errors: true }
   },
-  devtool: '#eval-source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {

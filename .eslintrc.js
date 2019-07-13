@@ -60,6 +60,7 @@ module.exports = {
     // disable valid v-for directives
     // cf. https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/valid-v-for.md
     // cf. https://github.com/vuejs/vetur/issues/261
-    'vue/valid-v-for': 'off'
+    'vue/valid-v-for': 'off',
+    'vue/require-prop-type-constructor': 'off'
   }
 }
