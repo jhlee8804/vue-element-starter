@@ -12,16 +12,34 @@ const router = new VueRouter({
   routes: [{
     path: '/',
     name: 'index',
-    component: () => import('@/views/View1.vue')
+    component: () => import('@/views/UserView.vue')
+  }, {
+    path: '/:userId',
+    name: 'user',
+    component: () => import('@/views/UserView.vue'),
+    props: route => ({
+      userId: route.params.userId
+    })
   }]
 })
 
 // cf. https://github.com/rstacruz/nprogress#configuration
-NProgress.configure({ showSpinner: false })
+NProgress.configure({
+  minimum: 0.2,
+  showSpinner: false
+})
 
 router.beforeResolve((to, from, next) => {
   if (to.name)
     NProgress.start()
+
+  next()
+})
+
+router.beforeEach((to, from, next) => {
+  setTimeout(() => {
+    window.scrollTo(0, 0)
+  }, 100)
 
   next()
 })

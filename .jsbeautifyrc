@@ -1,0 +1,7 @@
+{
+  "indent_size": 2,
+  "css": {
+    "newline_between_rules": true,
+    "selector_separator_newline": true
+  }
+}

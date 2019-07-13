@@ -36,5 +36,6 @@
       "singleQuote": false
     }
   },
-  "json.format.enable": false
+  "json.format.enable": false,
+  "editor.defaultFormatter": "octref.vetur"
 }

@@ -4,8 +4,11 @@
 ### Vuejs ###
 # Recommended template: Node.gitignore
 
-node_modules/
 dist/
+bundle/
+bin/
+node_modules/
+
 npm-debug.log
 yarn-error.log
 
