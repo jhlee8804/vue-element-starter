@@ -8,34 +8,38 @@
 export default {
   getUserAsync(userId) {
     return new Promise((resolve, reject) => {
-      resolve({
-        success: true,
-        data: {
-          userId,
-          userName: 'jhlee'
-        }
-      })
+      setTimeout(() => {
+        resolve({
+          success: true,
+          data: {
+            userId,
+            userName: userId
+          }
+        })
+      }, 500)
     })
   },
   getUserListAsync(paging, { pageNumber, pageCount, sortBy, orderBy }) {
     return new Promise((resolve, reject) => {
-      resolve({
-        success: true,
-        data: {
-          items: [{
-            userId: 'jhlee',
-            userName: 'jhlee'
-          }],
-          totalCount: 1,
-          totalPageCount: 1,
-          queryOption: {
-            pageNumber,
-            pageCount,
-            sortBy,
-            orderBy
+      setTimeout(() => {
+        resolve({
+          success: true,
+          data: {
+            items: [{
+              userId: 'jhlee',
+              userName: 'jhlee'
+            }],
+            totalCount: 1,
+            totalPageCount: 1,
+            queryOption: {
+              pageNumber,
+              pageCount,
+              sortBy,
+              orderBy
+            }
           }
-        }
-      })
+        })
+      }, 500)
     })
   }
 }
