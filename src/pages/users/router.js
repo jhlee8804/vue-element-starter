@@ -7,16 +7,16 @@ import 'nprogress/nprogress.css'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  base: '/', // ex) "/{name}/" or "/"
+  base: '/users/', // ex) "/{name}/" or "/"
   mode: 'hash',
   routes: [{
     path: '/',
     name: 'index',
-    component: () => import('@/views/UserView.vue')
+    component: () => import('@/pages/users/views/UserView.vue')
   }, {
     path: '/:userId',
     name: 'user',
-    component: () => import('@/views/UserView.vue'),
+    component: () => import('@/pages/users/views/UserView.vue'),
     props: route => ({
       userId: route.params.userId
     })

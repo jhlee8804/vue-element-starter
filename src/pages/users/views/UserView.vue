@@ -4,12 +4,6 @@
     <h1>View 1</h1>
     <div>User: {{ $get(currentUser, 'userName') }}</div>
     <div>User.isEnabled: {{ $get(currentUser, 'isEnabled', undefined) | yesno }}</div>
-    <div>
-      <el-button @click="visible = true">Button</el-button>
-      <el-dialog :visible.sync="visible" title="Hello world">
-        <p>Try Element</p>
-      </el-dialog>
-    </div>
   </div>
 </template>
 

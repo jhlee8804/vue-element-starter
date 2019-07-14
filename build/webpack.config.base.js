@@ -1,5 +1,7 @@
 'use strict'
 
+const _ = require('lodash')
+
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -7,10 +9,24 @@ const { VueLoaderPlugin } = require('vue-loader')
 
 const utils = require('./utils')
 
+const entries = utils.getEntries(),
+  jsEntries = _.reduce(entries, (result, value, key) => {
+      result[key] = value.js
+      return result
+    }, {}),
+  htmlEntries = _.reduce(entries, (result, value, key) => {
+      result.push(new HtmlWebpackPlugin({
+        template: `src/pages/${key}/index.html`,
+        filename: `${key}.html`,
+        chunks: [key],
+        inject: true
+      }))
+
+      return result
+    }, [])
+
 module.exports = {
-  entry: [
-    utils.resolve('src/index.js')
-  ],
+  entry: jsEntries,
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
@@ -62,16 +78,11 @@ module.exports = {
   },
   plugins: [
     new ProgressBarPlugin(),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
-    }),
     new VueLoaderPlugin(),
     new CopyWebpackPlugin([{
       from: utils.resolve('static/img'),
       to: utils.resolve('dist/static/img'),
       toType: 'dir'
     }])
-  ]
+  ].concat(htmlEntries)
 }
