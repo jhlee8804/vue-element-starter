@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div>{{ $t('HELLO') }}</div>
+    <h2>Index Page</h2>
+
     <main>
-      <router-view/>
+      <a href="/users.html">Go to /users.html</a>
     </main>
   </div>
 </template>
@@ -11,7 +12,7 @@
 export default {
   name: 'App',
   mounted() {
-    logger.info(`Application is mounted`)
+    logger.info(`Index page is mounted`)
   }
 }
 </script>
