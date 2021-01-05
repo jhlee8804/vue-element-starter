@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jhlee8804/vue-starter#readme",
   "dependencies": {
     "@babel/runtime": "^7.5.4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "browser-detect": "^0.2.28",
     "deep-freeze": "0.0.1",
     "es6-promise": "^4.2.8",
